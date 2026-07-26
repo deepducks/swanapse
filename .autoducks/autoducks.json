@@ -1,7 +1,7 @@
 {
   "command": "",
   "providers": { "its": "github", "git": "github", "llm": "claude" },
-  "defaults": { "model": "claude-sonnet-5", "effort": "high", "base_branch": "ggondim", "merge_method": "squash" },
+  "defaults": { "model": "claude-sonnet-5", "effort": "high", "base_branch": "master", "integration_branch": "ggondim", "merge_method": "squash" },
   "product": { "enabled": true, "schedule": "0 9 * * *" },
   "checks": { "enabled": false },
   "resolver": { "auto": true },
