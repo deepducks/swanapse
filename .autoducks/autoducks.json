@@ -5,9 +5,9 @@
     "llm": "claude"
   },
   "defaults": {
-    "model": "sonnet",
-    "reasoning": "high",
+    "model": "claude-sonnet-5",
     "base_branch": "master",
-    "integration_branch": "ggondim"
+    "integration_branch": "ggondim",
+    "effort": "high"
   }
 }
