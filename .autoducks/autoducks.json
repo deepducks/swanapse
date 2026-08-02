@@ -9,5 +9,29 @@
     "base_branch": "master",
     "integration_branch": "ggondim",
     "effort": "high"
+  },
+  "update": {
+    "enabled": true,
+    "schedule": "23 6 * * 1",
+    "channel": "stable",
+    "pin": null,
+    "mode": "pr",
+    "auto_merge": "off",
+    "on_drift": "warn",
+    "notify_issue": null,
+    "source_repo": "deepducks/autoducks"
+  },
+  "triggers": {
+    "update": []
+  },
+  "security": {
+    "per_agent": {
+      "update": {
+        "trusted_associations": [
+          "OWNER",
+          "MEMBER"
+        ]
+      }
+    }
   }
 }
