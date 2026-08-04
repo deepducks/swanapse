@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "source_repo": "deepducks/autoducks",
+  "channel": "stable",
+  "ref": "4ac745e52ee271fff7ef8b677cfb875c5572ae44",
+  "sha": "4ac745e52ee271fff7ef8b677cfb875c5572ae44",
+  "version": "0.5.8",
+  "installed_at": "2026-08-04T00:06:18Z",
+  "installed_by": "autoducks-update.yml#30864484836",
+  "previous": null
+}
