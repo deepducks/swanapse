@@ -1,0 +1,141 @@
+{
+  "command": "",
+  "providers": {
+    "its": "github",
+    "git": "github",
+    "llm": "claude"
+  },
+  "defaults": {
+    "model": "claude-sonnet-5",
+    "effort": "high",
+    "base_branch": "main",
+    "merge_method": "auto",
+    "tools": ["WebFetch", "WebSearch"]
+  },
+  "reviewer": {
+    "required_check": false,
+    "check_name": "Autoducks: Reviewer"
+  },
+  "resolver": {
+    "auto": true,
+    "opt_out_label": "Resolve:off"
+  },
+  "orchestrator": {
+    "mode": "waves"
+  },
+  "setup": {
+    "repo_settings": {
+      "enabled": true,
+      "allow_auto_merge": true,
+      "delete_branch_on_merge": true,
+      "assert_merge_method": true,
+      "propagate_to_children": true
+    }
+  },
+  "metarepo": {
+    "enabled": false,
+    "serialize_per_module": false,
+    "protected_submodule_strategy": "auto_merge",
+    "sync_schedule": "17 * * * *",
+    "delivery_check": {
+      "check_name": "Autoducks: Children delivered",
+      "timeout_minutes": 45,
+      "poll_interval_seconds": 30
+    },
+    "check_recovery": {
+      "assert_attempts": 3,
+      "assert_interval_seconds": 5,
+      "poll_rounds": 2
+    },
+    "auth": {
+      "mode": "single_pat"
+    },
+    "submodules": {}
+  },
+  "product": {
+    "enabled": true,
+    "schedule": "0 9 * * *",
+    "priority_backend": "auto",
+    "project_number": null,
+    "priority_field": "Priority",
+    "flag_duplicates": true,
+    "max_closes_per_run": 5,
+    "confidence_threshold": "high",
+    "max_issues_per_run": 100,
+    "provisional_classification": true
+  },
+  "update": {
+    "enabled": true,
+    "schedule": "23 6 * * 1",
+    "channel": "stable",
+    "pin": null,
+    "mode": "pr",
+    "auto_merge": "off",
+    "on_drift": "warn",
+    "notify_issue": null,
+    "source_repo": "deepducks/autoducks"
+  },
+  "triggers": {
+    "architect": [],
+    "engineer":  [],
+    "execute":   [],
+    "fix":       [],
+    "revert":    [],
+    "close":     [],
+    "review":    [],
+    "rework":    [],
+    "defer":     [],
+    "resolve":   [],
+    "triage":    [],
+    "merge":     [],
+    "update":    [],
+    "agent":     []
+  },
+  "review": {
+    "security_guidelines": ".autoducks/security-guidelines.md",
+    "auto_rework": true,
+    "max_iterations": 3
+  },
+  "context": {
+    "reviewer": {
+      "parts": [
+        "issue_title",
+        "design.problem_statement",
+        "design.proposed_solution",
+        "design.constraints",
+        "design.out_of_scope",
+        "pr_diff",
+        "pr_meta",
+        "security_guidelines"
+      ]
+    }
+  },
+  "security": {
+    "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"],
+    "allow": ["bot-service-account", "@my-org/agents-users"],
+    "deny": [],
+    "codeowners": false,
+    "per_agent": {
+      "execute":   { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] },
+      "architect": { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR", "CONTRIBUTOR"] },
+      "engineer":  { },
+      "fix":       { },
+      "revert":    { "trusted_associations": ["OWNER", "MEMBER"] },
+      "close":     { "trusted_associations": ["OWNER", "MEMBER"] },
+      "review":    { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] },
+      "rework":    { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] },
+      "defer":     { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR", "CONTRIBUTOR"] },
+      "resolve":   { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] },
+      "product":   { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] },
+      "merge":     { "trusted_associations": ["OWNER", "MEMBER"] },
+      "update":    { "trusted_associations": ["OWNER", "MEMBER"] },
+      "agent":     { "trusted_associations": ["OWNER", "MEMBER", "COLLABORATOR"] }
+    }
+  },
+  "custom_agents": {
+    "enabled": true,
+    "roots": [],
+    "agents": {}
+  },
+  "plugins": []
+}
