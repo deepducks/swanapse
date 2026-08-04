@@ -8,7 +8,7 @@
   "defaults": {
     "model": "claude-sonnet-5",
     "effort": "high",
-    "base_branch": "main",
+    "base_branch": "master",
     "merge_method": "auto",
     "tools": ["WebFetch", "WebSearch"]
   },
